@@ -1,4 +1,114 @@
 {
+    "benchmarks.DDot.time_ddot": {
+        "code": "class DDot:\n    def time_ddot(self, n):\n        run_ddot(self.x, self.y)\n\n    def setup(self, n):\n        rndm = np.random.RandomState(1234)\n        self.x = np.array(rndm.uniform(size=(n,)), dtype=float)\n        self.y = np.array(rndm.uniform(size=(n,)), dtype=float)",
+        "min_run_count": 2,
+        "name": "benchmarks.DDot.time_ddot",
+        "number": 0,
+        "param_names": [
+            "size"
+        ],
+        "params": [
+            [
+                "100",
+                "1000"
+            ]
+        ],
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "unit": "seconds",
+        "version": "80bf1ad63415a6c7025642ca187eeaaa8591af1246bf3d3b968387d6a921c801",
+        "warmup_time": -1
+    },
+    "benchmarks.DSyrk.time_dsyrk": {
+        "code": "class DSyrk:\n    def time_dsyrk(self, n):\n        run_dsyrk(self.a, self.c)\n\n    def setup(self, n):\n        rndm = np.random.RandomState(1234)\n        self.a = np.array(rndm.uniform(size=(n, n)), dtype=float, order='F')\n        self.c = np.empty((n, n), dtype=float, order='F')",
+        "min_run_count": 2,
+        "name": "benchmarks.DSyrk.time_dsyrk",
+        "number": 0,
+        "param_names": [
+            "size"
+        ],
+        "params": [
+            [
+                "100",
+                "1000"
+            ]
+        ],
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "unit": "seconds",
+        "version": "575b5769306b065cbbb7d3e1506711cc2a92a61bc43aaa7c262521688e1756e1",
+        "warmup_time": -1
+    },
+    "benchmarks.Daxpy.time_daxpy": {
+        "code": "class Daxpy:\n    def time_daxpy(self, n):\n        run_daxpy(self.x, self.y)\n\n    def setup(self, n):\n        rndm = np.random.RandomState(1234)\n        self.x = np.array(rndm.uniform(size=(n,)), dtype=float)\n        self.y = np.array(rndm.uniform(size=(n,)), dtype=float)",
+        "min_run_count": 2,
+        "name": "benchmarks.Daxpy.time_daxpy",
+        "number": 0,
+        "param_names": [
+            "size"
+        ],
+        "params": [
+            [
+                "100",
+                "1000"
+            ]
+        ],
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "unit": "seconds",
+        "version": "3fea5e566c44b650ea6f9c63ccb3a01039e495f2491e9b4a9ada53796578f772",
+        "warmup_time": -1
+    },
+    "benchmarks.Dgemm.time_dgemm": {
+        "code": "class Dgemm:\n    def time_dgemm(self, n):\n        run_dgemm(self.a, self.b, self.c)\n\n    def setup(self, n):\n        rndm = np.random.RandomState(1234)\n        self.a = np.array(rndm.uniform(size=(n, n)), dtype=float, order='F')\n        self.b = np.array(rndm.uniform(size=(n, n)), dtype=float, order='F')\n        self.c = np.empty((n, n), dtype=float, order='F')",
+        "min_run_count": 2,
+        "name": "benchmarks.Dgemm.time_dgemm",
+        "number": 0,
+        "param_names": [
+            "size"
+        ],
+        "params": [
+            [
+                "100",
+                "1000"
+            ]
+        ],
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "unit": "seconds",
+        "version": "15a0c8e093f6c9f05187ac49c93d40c5b28fce2ff629234ec355838e555a5f55",
+        "warmup_time": -1
+    },
+    "benchmarks.Dgesv.time_dgesv": {
+        "code": "class Dgesv:\n    def time_dgesv(self, n):\n        run_dgesv(self.a, self.b)\n\n    def setup(self, n):\n        rndm = np.random.RandomState(1234)\n        self.a = (np.array(rndm.uniform(size=(n, n)), dtype=float, order='F') +\n                  np.eye(n, order='F'))\n        self.b = np.array(rndm.uniform(size=(n, 1)), order='F')",
+        "min_run_count": 2,
+        "name": "benchmarks.Dgesv.time_dgesv",
+        "number": 0,
+        "param_names": [
+            "size"
+        ],
+        "params": [
+            [
+                "100",
+                "1000"
+            ]
+        ],
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "unit": "seconds",
+        "version": "c27f73708b335ef2698733f2fd15f8b44ba99a3e6f488b2db3781893ffb72213",
+        "warmup_time": -1
+    },
     "benchmarks.Nrm2.time_dnrm2": {
         "code": "class Nrm2:\n    def time_dnrm2(self, n):\n        run_dnrm2(n, self.x, 1)\n\n    def setup(self, n):\n        rndm = np.random.RandomState(1234)\n        self.x = rndm.uniform(size=(n,)).astype(float)",
         "min_run_count": 2,
