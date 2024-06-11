@@ -1,0 +1,25 @@
+{
+    "benchmarks.Nrm2.time_dnrm2": {
+        "code": "class Nrm2:\n    def time_dnrm2(self, n):\n        run_dnrm2(n, self.x, 1)\n\n    def setup(self, n):\n        rndm = np.random.RandomState(1234)\n        self.x = rndm.uniform(size=(n,)).astype(float)",
+        "min_run_count": 2,
+        "name": "benchmarks.Nrm2.time_dnrm2",
+        "number": 0,
+        "param_names": [
+            "size"
+        ],
+        "params": [
+            [
+                "100",
+                "1000"
+            ]
+        ],
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "unit": "seconds",
+        "version": "abbd8dffa55067de64ae489c77f1e73ca9c0c0364a9a7c62fa9d0a9a9e9a08e3",
+        "warmup_time": -1
+    },
+    "version": 2
+}
