@@ -87,6 +87,28 @@
         "version": "15a0c8e093f6c9f05187ac49c93d40c5b28fce2ff629234ec355838e555a5f55",
         "warmup_time": -1
     },
+    "benchmarks.Dgesdd.time_dgesdd": {
+        "code": "class Dgesdd:\n    def time_dgesdd(self, mn):\n        run_dgesdd(self.a, self.lwork)\n\n    def setup(self, mn):\n        m, n = (int(x) for x in mn.split(\",\"))\n    \n        rndm = np.random.RandomState(1234)\n        a = np.array(rndm.uniform(size=(m, n)), dtype=float, order='F')\n    \n        lwork, info = dgesdd_lwork(m, n)\n        lwork = int(lwork)\n        assert info == 0\n    \n        self.a, self.lwork = a, lwork",
+        "min_run_count": 2,
+        "name": "benchmarks.Dgesdd.time_dgesdd",
+        "number": 0,
+        "param_names": [
+            "(m, n)"
+        ],
+        "params": [
+            [
+                "'100, 5'",
+                "'1000, 222'"
+            ]
+        ],
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "type": "time",
+        "unit": "seconds",
+        "version": "3e9351b98d1a9550ca5b1810938e5b8ee80b76d05eb155749890912d50f7ba86",
+        "warmup_time": -1
+    },
     "benchmarks.Dgesv.time_dgesv": {
         "code": "class Dgesv:\n    def time_dgesv(self, n):\n        run_dgesv(self.a, self.b)\n\n    def setup(self, n):\n        rndm = np.random.RandomState(1234)\n        self.a = (np.array(rndm.uniform(size=(n, n)), dtype=float, order='F') +\n                  np.eye(n, order='F'))\n        self.b = np.array(rndm.uniform(size=(n, 1)), order='F')",
         "min_run_count": 2,
